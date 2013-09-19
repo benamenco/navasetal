@@ -1,0 +1,146 @@
+Logging started at 01:50:46 on 16 May 2013
+QIIME version: 1.7.0
+
+qiime_config values:
+blastmat_dir	/Users/jona1883/qiime_software_1_7_0/blast-2.2.22-release/data
+sc_queue	all.q
+pynast_template_alignment_fp	/Users/jona1883/qiime_software_1_7_0/core_set_aligned.fasta.imputed
+cluster_jobs_fp	/Users/jona1883/qiime_software_1_7_0/qiime-1.7.0-release/bin/start_parallel_jobs.py
+assign_taxonomy_reference_seqs_fp	/Users/jona1883/qiime_software_1_7_0/gg_otus-12_10-release/rep_set/97_otus.fasta
+torque_queue	friendlyq
+template_alignment_lanemask_fp	/Users/jona1883/qiime_software_1_7_0/lanemask_in_1s_and_0s
+jobs_to_start	1
+cloud_environment	False
+qiime_scripts_dir	/Users/jona1883/qiime_software_1_7_0/qiime-1.7.0-release/bin
+denoiser_min_per_core	50
+working_dir	/scratch/jona1883/tmp/
+python_exe_fp	/Users/jona1883/qiime_software_1_7_0/python-2.7.3-release/bin/python
+temp_dir	/scratch/jona1883/tmp/
+blastall_fp	/Users/jona1883/qiime_software_1_7_0/blast-2.2.22-release/bin/blastall
+seconds_to_sleep	60
+assign_taxonomy_id_to_taxonomy_fp	/Users/jona1883/qiime_software_1_7_0/gg_otus-12_10-release/taxonomy/97_otu_taxonomy.txt
+
+parameter file values:
+parallel:jobs_to_start	30
+
+Input file md5 sums:
+/Users/shared/IQBIO_dataset_2013/subs_cr_otus/otu_table.biom: cf06de22274b2bc37b9135fe28469ef2
+/Users/shared/IQBIO_dataset_2013/IQ_BIO_16sV4_L001_map.txt: 7bd18f03db6d7528ce7ab4e54c998184
+/Users/jona1883/qiime_software_1_7_0/gg_otus-12_10-release/trees/97_otus.tree: 05a48b4775eaa75ec4073cd7c02f1236
+
+Executing commands.
+
+# Sample OTU table at 1453 seqs/sample command 
+/Users/jona1883/qiime_software_1_7_0/python-2.7.3-release/bin/python /Users/jona1883/qiime_software_1_7_0/qiime-1.7.0-release/bin/single_rarefaction.py -i /Users/shared/IQBIO_dataset_2013/subs_cr_otus/otu_table.biom -o /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/otu_table_even1453.biom -d 1453
+
+Stdout:
+
+Stderr:
+
+# Build prefs file command 
+/Users/jona1883/qiime_software_1_7_0/python-2.7.3-release/bin/python /Users/jona1883/qiime_software_1_7_0/qiime-1.7.0-release/bin/make_prefs_file.py -m /Users/shared/IQBIO_dataset_2013/IQ_BIO_16sV4_L001_map.txt -o /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/prefs.txt  --mapping_headers_to_use GROUP,SCIENTIFIC_NAME,TAXON_ID,HOST_TAXID,COMMON_NAME,ENV_BIOME,BODY_SITE,HOST_SUBJECT_ID,BODY_HABITAT,ENV_MATTER,ENV_FEATURE,BODY_PRODUCT,GENOTYPE
+
+Stdout:
+
+Stderr:
+
+# Beta Diversity (weighted_unifrac) command 
+/Users/jona1883/qiime_software_1_7_0/python-2.7.3-release/bin/python /Users/jona1883/qiime_software_1_7_0/qiime-1.7.0-release/bin/parallel_beta_diversity.py -i /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/otu_table_even1453.biom -o /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref --metrics weighted_unifrac -T  -t /Users/jona1883/qiime_software_1_7_0/gg_otus-12_10-release/trees/97_otus.tree --jobs_to_start 30
+
+Stdout:
+
+Stderr:
+
+# Rename distance matrix (weighted_unifrac) command 
+mv /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/weighted_unifrac_otu_table_even1453.txt /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/weighted_unifrac_dm.txt
+
+Stdout:
+
+Stderr:
+
+# Principal coordinates (weighted_unifrac) command 
+/Users/jona1883/qiime_software_1_7_0/python-2.7.3-release/bin/python /Users/jona1883/qiime_software_1_7_0/qiime-1.7.0-release/bin/principal_coordinates.py -i /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/weighted_unifrac_dm.txt -o /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/weighted_unifrac_pc.txt 
+
+Stdout:
+
+Stderr:
+
+# Make 3D plots (continuous coloring, weighted_unifrac) command 
+/Users/jona1883/qiime_software_1_7_0/python-2.7.3-release/bin/python /Users/jona1883/qiime_software_1_7_0/qiime-1.7.0-release/bin/make_3d_plots.py -p /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/prefs.txt -i /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/weighted_unifrac_pc.txt -o /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/weighted_unifrac_3d_continuous/ -m /Users/shared/IQBIO_dataset_2013/IQ_BIO_16sV4_L001_map.txt 
+
+Stdout:
+
+Stderr:
+
+# Make 3D plots (discrete coloring, weighted_unifrac) command 
+/Users/jona1883/qiime_software_1_7_0/python-2.7.3-release/bin/python /Users/jona1883/qiime_software_1_7_0/qiime-1.7.0-release/bin/make_3d_plots.py -b "GROUP,SCIENTIFIC_NAME,TAXON_ID,HOST_TAXID,COMMON_NAME,ENV_BIOME,BODY_SITE,HOST_SUBJECT_ID,BODY_HABITAT,ENV_MATTER,ENV_FEATURE,BODY_PRODUCT,GENOTYPE" -i /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/weighted_unifrac_pc.txt -o /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/weighted_unifrac_3d_discrete/ -m /Users/shared/IQBIO_dataset_2013/IQ_BIO_16sV4_L001_map.txt 
+
+Stdout:
+
+Stderr:
+
+# Make 2D plots (continuous coloring, weighted_unifrac) command 
+/Users/jona1883/qiime_software_1_7_0/python-2.7.3-release/bin/python /Users/jona1883/qiime_software_1_7_0/qiime-1.7.0-release/bin/make_2d_plots.py -p /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/prefs.txt -i /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/weighted_unifrac_pc.txt -o /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/weighted_unifrac_2d_continuous/ -m /Users/shared/IQBIO_dataset_2013/IQ_BIO_16sV4_L001_map.txt 
+
+Stdout:
+
+Stderr:
+
+# Make 2D plots (discrete coloring, weighted_unifrac) command 
+/Users/jona1883/qiime_software_1_7_0/python-2.7.3-release/bin/python /Users/jona1883/qiime_software_1_7_0/qiime-1.7.0-release/bin/make_2d_plots.py -b "GROUP,SCIENTIFIC_NAME,TAXON_ID,HOST_TAXID,COMMON_NAME,ENV_BIOME,BODY_SITE,HOST_SUBJECT_ID,BODY_HABITAT,ENV_MATTER,ENV_FEATURE,BODY_PRODUCT,GENOTYPE" -i /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/weighted_unifrac_pc.txt -o /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/weighted_unifrac_2d_discrete/ -m /Users/shared/IQBIO_dataset_2013/IQ_BIO_16sV4_L001_map.txt 
+
+Stdout:
+
+Stderr:
+
+# Beta Diversity (unweighted_unifrac) command 
+/Users/jona1883/qiime_software_1_7_0/python-2.7.3-release/bin/python /Users/jona1883/qiime_software_1_7_0/qiime-1.7.0-release/bin/parallel_beta_diversity.py -i /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/otu_table_even1453.biom -o /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref --metrics unweighted_unifrac -T  -t /Users/jona1883/qiime_software_1_7_0/gg_otus-12_10-release/trees/97_otus.tree --jobs_to_start 30
+
+Stdout:
+
+Stderr:
+
+# Rename distance matrix (unweighted_unifrac) command 
+mv /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/unweighted_unifrac_otu_table_even1453.txt /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/unweighted_unifrac_dm.txt
+
+Stdout:
+
+Stderr:
+
+# Principal coordinates (unweighted_unifrac) command 
+/Users/jona1883/qiime_software_1_7_0/python-2.7.3-release/bin/python /Users/jona1883/qiime_software_1_7_0/qiime-1.7.0-release/bin/principal_coordinates.py -i /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/unweighted_unifrac_dm.txt -o /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/unweighted_unifrac_pc.txt 
+
+Stdout:
+
+Stderr:
+
+# Make 3D plots (continuous coloring, unweighted_unifrac) command 
+/Users/jona1883/qiime_software_1_7_0/python-2.7.3-release/bin/python /Users/jona1883/qiime_software_1_7_0/qiime-1.7.0-release/bin/make_3d_plots.py -p /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/prefs.txt -i /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/unweighted_unifrac_pc.txt -o /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/unweighted_unifrac_3d_continuous/ -m /Users/shared/IQBIO_dataset_2013/IQ_BIO_16sV4_L001_map.txt 
+
+Stdout:
+
+Stderr:
+
+# Make 3D plots (discrete coloring, unweighted_unifrac) command 
+/Users/jona1883/qiime_software_1_7_0/python-2.7.3-release/bin/python /Users/jona1883/qiime_software_1_7_0/qiime-1.7.0-release/bin/make_3d_plots.py -b "GROUP,SCIENTIFIC_NAME,TAXON_ID,HOST_TAXID,COMMON_NAME,ENV_BIOME,BODY_SITE,HOST_SUBJECT_ID,BODY_HABITAT,ENV_MATTER,ENV_FEATURE,BODY_PRODUCT,GENOTYPE" -i /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/unweighted_unifrac_pc.txt -o /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/unweighted_unifrac_3d_discrete/ -m /Users/shared/IQBIO_dataset_2013/IQ_BIO_16sV4_L001_map.txt 
+
+Stdout:
+
+Stderr:
+
+# Make 2D plots (continuous coloring, unweighted_unifrac) command 
+/Users/jona1883/qiime_software_1_7_0/python-2.7.3-release/bin/python /Users/jona1883/qiime_software_1_7_0/qiime-1.7.0-release/bin/make_2d_plots.py -p /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/prefs.txt -i /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/unweighted_unifrac_pc.txt -o /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/unweighted_unifrac_2d_continuous/ -m /Users/shared/IQBIO_dataset_2013/IQ_BIO_16sV4_L001_map.txt 
+
+Stdout:
+
+Stderr:
+
+# Make 2D plots (discrete coloring, unweighted_unifrac) command 
+/Users/jona1883/qiime_software_1_7_0/python-2.7.3-release/bin/python /Users/jona1883/qiime_software_1_7_0/qiime-1.7.0-release/bin/make_2d_plots.py -b "GROUP,SCIENTIFIC_NAME,TAXON_ID,HOST_TAXID,COMMON_NAME,ENV_BIOME,BODY_SITE,HOST_SUBJECT_ID,BODY_HABITAT,ENV_MATTER,ENV_FEATURE,BODY_PRODUCT,GENOTYPE" -i /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/unweighted_unifrac_pc.txt -o /Users/shared/IQBIO_dataset_2013/beta_diversity/close_ref/unweighted_unifrac_2d_discrete/ -m /Users/shared/IQBIO_dataset_2013/IQ_BIO_16sV4_L001_map.txt 
+
+Stdout:
+
+Stderr:
+
+
+Logging stopped at 01:54:55 on 16 May 2013

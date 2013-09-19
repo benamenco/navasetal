@@ -1,0 +1,118 @@
+{
+'background_color':'black',
+
+'sample_coloring':
+	{
+		'GROUP':
+		{
+			'column':'GROUP',
+			'colors':(('red',(0,100,100)),('blue',(240,100,100)))
+		},
+		'SCIENTIFIC_NAME':
+		{
+			'column':'SCIENTIFIC_NAME',
+			'colors':(('red',(0,100,100)),('blue',(240,100,100)))
+		},
+		'TAXON_ID':
+		{
+			'column':'TAXON_ID',
+			'colors':(('red',(0,100,100)),('blue',(240,100,100)))
+		},
+		'HOST_TAXID':
+		{
+			'column':'HOST_TAXID',
+			'colors':(('red',(0,100,100)),('blue',(240,100,100)))
+		},
+		'COMMON_NAME':
+		{
+			'column':'COMMON_NAME',
+			'colors':(('red',(0,100,100)),('blue',(240,100,100)))
+		},
+		'ENV_BIOME':
+		{
+			'column':'ENV_BIOME',
+			'colors':(('red',(0,100,100)),('blue',(240,100,100)))
+		},
+		'BODY_SITE':
+		{
+			'column':'BODY_SITE',
+			'colors':(('red',(0,100,100)),('blue',(240,100,100)))
+		},
+		'HOST_SUBJECT_ID':
+		{
+			'column':'HOST_SUBJECT_ID',
+			'colors':(('red',(0,100,100)),('blue',(240,100,100)))
+		},
+		'BODY_HABITAT':
+		{
+			'column':'BODY_HABITAT',
+			'colors':(('red',(0,100,100)),('blue',(240,100,100)))
+		},
+		'ENV_MATTER':
+		{
+			'column':'ENV_MATTER',
+			'colors':(('red',(0,100,100)),('blue',(240,100,100)))
+		},
+		'ENV_FEATURE':
+		{
+			'column':'ENV_FEATURE',
+			'colors':(('red',(0,100,100)),('blue',(240,100,100)))
+		},
+		'BODY_PRODUCT':
+		{
+			'column':'BODY_PRODUCT',
+			'colors':(('red',(0,100,100)),('blue',(240,100,100)))
+		},
+		'GENOTYPE':
+		{
+			'column':'GENOTYPE',
+			'colors':(('red',(0,100,100)),('blue',(240,100,100)))
+		}
+	},
+'MONTE_CARLO_GROUP_DISTANCES':
+	{
+		'GROUP': 10,
+		'SCIENTIFIC_NAME': 10,
+		'TAXON_ID': 10,
+		'HOST_TAXID': 10,
+		'COMMON_NAME': 10,
+		'ENV_BIOME': 10,
+		'BODY_SITE': 10,
+		'HOST_SUBJECT_ID': 10,
+		'BODY_HABITAT': 10,
+		'ENV_MATTER': 10,
+		'ENV_FEATURE': 10,
+		'BODY_PRODUCT': 10,
+		'GENOTYPE': 10
+	},
+'FIELDS':
+	[
+		'ENV_FEATURE',
+		'GROUP',
+		'GENOTYPE',
+		'SCIENTIFIC_NAME',
+		'ENV_BIOME',
+		'BODY_HABITAT',
+		'COMMON_NAME',
+		'HOST_TAXID',
+		'TAXON_ID',
+		'BODY_PRODUCT',
+		'ENV_MATTER',
+		'HOST_SUBJECT_ID',
+		'BODY_SITE'
+	],
+'taxonomy_coloring':
+	{
+		'Level_1':
+		{
+			'column':'1',
+			'colors':
+			{
+				'Root;Bacteria':('red0',(0,100,100))
+			}
+		}
+	},
+'ball_scale':'1.000000',
+'arrow_line_color':'white',
+'arrow_head_color':'red'
+}
